@@ -16,23 +16,24 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ Frontend validation
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
 
     try {
-      const res = await axios.post("http://localhost:5001/api/signup", {
+      const res = await axios.post(process.env.REACT_APP_BACKEND_URL + "/api/signup", {
         name,
         email,
         phone,
-        password, // plain string (correct)
+        password,
       });
 
-      // assuming backend returns { token }
       login(res.data.token);
-      navigate("/dashboard");
+      navigate("/confirm-signup", {
+        state: { name },
+      });
+
     } catch (err) {
       console.error(err);
       alert(err.response?.data?.message || "Signup failed");

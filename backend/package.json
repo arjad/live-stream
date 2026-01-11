@@ -13,11 +13,14 @@
   "description": "",
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.962.0",
+    "amazon-cognito-identity-js": "^6.3.16",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3"
+    "express-session": "^1.18.2",
+    "jsonwebtoken": "^9.0.3",
+    "openid-client": "^6.8.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
